@@ -8,9 +8,10 @@ import { PdpComponent } from './pdp/pdp.component';
 import { AppRoutingModule } from './app-routing.module';
 import { ProductService } from './products.service';
 import { HttpClientModule } from '@angular/common/http';
+import { CartComponent } from './cart/cart.component';
 
 @NgModule({
-  declarations: [AppComponent, PipComponent, PipItemComponent, PdpComponent],
+  declarations: [AppComponent, PipComponent, PipItemComponent, PdpComponent, CartComponent],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule],
   providers: [ProductService],
   bootstrap: [AppComponent],
