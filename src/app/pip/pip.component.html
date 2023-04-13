@@ -1,0 +1,10 @@
+<div class="bg-gray-200">
+  <div class="container mx-auto px-8 bg-white">
+    <div class="flex flex-wrap justify-center gap-8">
+      <app-pip-item
+        *ngFor="let product of products"
+        [product]="product"
+      ></app-pip-item>
+    </div>
+  </div>
+</div>
