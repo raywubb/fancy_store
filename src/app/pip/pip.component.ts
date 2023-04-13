@@ -1,31 +1,22 @@
-import { Component } from '@angular/core';
-import axios from 'axios';
-
-interface Product {
-  id: number;
-  title: string;
-  price: number;
-  description: string;
-  category: string;
-  image: string;
-  rating: { rate: number; count: number };
-}
+import { Component, OnInit } from '@angular/core';
+import { ProductService } from '../products.service';
+import { Product } from '../types';
 
 @Component({
   selector: 'app-pip',
   templateUrl: './pip.component.html',
   styleUrls: ['./pip.component.css'],
 })
-export class PipComponent {
+export class PipComponent implements OnInit {
   products: Product[] = [];
 
-  constructor() {
-    axios
-      .get('https://fakestoreapi.com/products')
-      .then((response) => {
-        console.log('.. L14', response);
-        this.products = response.data;
-      })
-      .catch((error) => console.error(error));
+  constructor(private productService: ProductService) {
+    productService.dataReady.subscribe((value) => {
+      this.products = productService.getProducts();
+    });
+  }
+
+  ngOnInit(): void {
+    this.products = this.productService.getProducts();
   }
 }

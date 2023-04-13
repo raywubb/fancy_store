@@ -6,11 +6,14 @@ import { PipComponent } from './pip/pip.component';
 import { PipItemComponent } from './pip/pip-item/pip-item.component';
 import { PdpComponent } from './pdp/pdp.component';
 import { AppRoutingModule } from './app-routing.module';
+import { ProductService } from './products.service';
 
 @NgModule({
   declarations: [AppComponent, PipComponent, PipItemComponent, PdpComponent],
   imports: [BrowserModule, AppRoutingModule],
-  providers: [],
+  providers: [ProductService],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule {
+  constructor(private productService: ProductService) {}
+}
