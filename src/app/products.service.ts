@@ -1,20 +1,17 @@
-import { EventEmitter } from '@angular/core';
-import axios from 'axios';
+import { HttpClient } from '@angular/common/http';
+import { EventEmitter, Injectable } from '@angular/core';
 import { Product } from './types';
 
+@Injectable()
 export class ProductService {
   products: Product[] = [];
   dataReady = new EventEmitter<string>();
 
-  constructor() {
-    axios
-      .get('https://fakestoreapi.com/products')
-      .then((response) => {
-        this.products = response.data;
-        console.log('.. L14', this.products);
-        this.dataReady.emit('ready');
-      })
-      .catch((error) => console.error(error));
+  constructor(private http: HttpClient) {
+    http.get('https://fakestoreapi.com/products').subscribe((data) => {
+      this.products = data as Product[];
+      this.dataReady.emit('ready');
+    });
   }
 
   getProducts() {
