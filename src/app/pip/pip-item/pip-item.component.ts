@@ -17,4 +17,9 @@ interface Product {
 })
 export class PipItemComponent {
   @Input() product: Product | undefined;
+
+  getRate() {
+    const value = Math.round(this.product?.rating?.rate ?? 0);
+    return new Array(value);
+  }
 }
