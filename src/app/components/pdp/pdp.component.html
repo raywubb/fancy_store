@@ -38,8 +38,11 @@
         <h2 class="text-2xl">Description</h2>
         <p class="text-lg">{{ product?.description }}</p>
       </div>
-      <button class="w-full shadow-md py-2 text-xl mt-8 hover:shadow-xl">
-        Add To Cart
+      <button
+        class="w-full shadow-md py-2 text-xl mt-8 hover:shadow-xl"
+        (click)="addToCart()"
+      >
+        {{ inCart ? "Added" : "Add To Cart" }}
       </button>
     </div>
   </div>

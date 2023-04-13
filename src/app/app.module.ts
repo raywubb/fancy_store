@@ -2,20 +2,30 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
-import { PipComponent } from './pip/pip.component';
-import { PipItemComponent } from './pip/pip-item/pip-item.component';
-import { PdpComponent } from './pdp/pdp.component';
+import { PipComponent } from './components/pip/pip.component';
+import { PipItemComponent } from './components/pip/pip-item/pip-item.component';
+import { PdpComponent } from './components/pdp/pdp.component';
 import { AppRoutingModule } from './app-routing.module';
-import { ProductService } from './products.service';
+import { ProductService } from './services/product.service';
+import { CartService } from './services/cart.service';
 import { HttpClientModule } from '@angular/common/http';
-import { CartComponent } from './cart/cart.component';
+import { CartComponent } from './components/cart/cart.component';
 
 @NgModule({
-  declarations: [AppComponent, PipComponent, PipItemComponent, PdpComponent, CartComponent],
+  declarations: [
+    AppComponent,
+    PipComponent,
+    PipItemComponent,
+    PdpComponent,
+    CartComponent,
+  ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule],
-  providers: [ProductService],
+  providers: [ProductService, CartService],
   bootstrap: [AppComponent],
 })
 export class AppModule {
-  constructor(private productService: ProductService) {}
+  constructor(
+    private cartService: CartService,
+    private productService: ProductService
+  ) {}
 }
