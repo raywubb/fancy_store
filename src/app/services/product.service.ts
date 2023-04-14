@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { EventEmitter, Injectable } from '@angular/core';
-import { Product } from './types';
+import { Product } from '../types';
 
 @Injectable()
 export class ProductService {
@@ -18,7 +18,8 @@ export class ProductService {
     return this.products;
   }
 
-  getProduct(id: number): Product | undefined {
-    return this.products.find((item) => item.id === id);
+  getProduct(id: number): Product {
+    const product = this.products.find((item) => item.id === id);
+    return product!;
   }
 }
