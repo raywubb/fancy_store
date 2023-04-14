@@ -7,3 +7,8 @@ export interface Product {
   image: string;
   rating: { rate: number; count: number };
 }
+
+export interface CartItem {
+  productId: number;
+  count: number;
+}
