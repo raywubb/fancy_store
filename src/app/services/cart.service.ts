@@ -1,14 +1,10 @@
 import { EventEmitter, Injectable } from '@angular/core';
 import { ProductService } from './product.service';
-
-interface CartItem {
-  productId: number;
-  count: number;
-}
+import { CartItem } from '../types';
 
 @Injectable()
 export class CartService {
-  items: CartItem[] = [];
+  items: CartItem[] = [{ productId: 2, count: 3 }];
   cartUpdated = new EventEmitter<string>();
 
   constructor(private productService: ProductService) {}
@@ -24,6 +20,20 @@ export class CartService {
     }
 
     this.cartUpdated.emit('add');
+  }
+
+  decFromCart(productId: number) {
+    const item = this.items.find(
+      (cartItem) => cartItem.productId === productId
+    );
+    if (item) {
+      item.count--;
+      if (item.count <= 0) {
+        this.items = this.items.filter((item) => item.productId !== productId);
+      }
+    }
+
+    this.cartUpdated.emit('remove');
   }
 
   containsProduct(productId: number) {

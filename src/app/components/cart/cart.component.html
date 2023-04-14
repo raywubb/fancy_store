@@ -1,1 +1,22 @@
-<p>cart works!</p>
+<div class="bg-gray-200">
+  <div class="container mx-auto px-8 bg-white min-h-screen">
+    <div class="flex flex-col flex-wrap justify-center gap-8">
+      <app-cart-item
+        *ngFor="let item of getItems()"
+        [item]="item"
+      ></app-cart-item>
+      <div
+        class="mx-auto flex flex-col items-center gap-y-6"
+        *ngIf="totalCount === 0"
+      >
+        <p>Cart is empty, click to continue shopping!</p>
+        <button
+          class="shadow-md px-8 py-2 hover:shadow-xl rounded-md font-semibold"
+          routerLink="/"
+        >
+          Continue Shopping
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

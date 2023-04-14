@@ -10,6 +10,7 @@ import { ProductService } from './services/product.service';
 import { CartService } from './services/cart.service';
 import { HttpClientModule } from '@angular/common/http';
 import { CartComponent } from './components/cart/cart.component';
+import { CartItemComponent } from './components/cart/cart-item/cart-item.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { CartComponent } from './components/cart/cart.component';
     PipItemComponent,
     PdpComponent,
     CartComponent,
+    CartItemComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule],
   providers: [ProductService, CartService],
