@@ -6,13 +6,13 @@
       <div class="aspect-w-4 aspect-h-3">
         <img
           class="object-contain"
-          src="{{ product?.image }}"
-          alt="{{ product?.title }}"
+          src="{{ product.image }}"
+          alt="{{ product.title }}"
         />
       </div>
-      <h1 class="text-3xl">{{ product?.title }}</h1>
+      <h1 class="text-3xl">{{ product.title }}</h1>
       <div class="flex justify-between items-center">
-        <div class="text-xl">${{ product?.price }}</div>
+        <div class="text-xl">${{ product.price }}</div>
         <div class="flex items-center gap-x-1">
           <div class="flex">
             <svg
@@ -31,12 +31,12 @@
               />
             </svg>
           </div>
-          <span>{{ product?.rating?.rate }}({{ product?.rating?.count }})</span>
+          <span>{{ product.rating.rate }}({{ product.rating.count }})</span>
         </div>
       </div>
       <div class="flex flex-col gap-y-4">
         <h2 class="text-2xl">Description</h2>
-        <p class="text-lg">{{ product?.description }}</p>
+        <p class="text-lg">{{ product.description }}</p>
       </div>
       <button
         class="w-full shadow-md py-2 text-xl mt-8 hover:shadow-xl"

@@ -53,8 +53,7 @@ export class CartService {
     const price = this.items
       .map(
         (item) =>
-          item.count *
-          (this.productService.getProduct(item.productId)?.price ?? 0)
+          item.count * this.productService.getProduct(item.productId).price
       )
       .reduce((acc, v) => acc + v, 0);
     return price.toFixed(2);
