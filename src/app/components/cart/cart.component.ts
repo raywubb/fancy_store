@@ -16,4 +16,8 @@ export class CartComponent {
   get totalCount() {
     return this.cartService.getTotalCount();
   }
+
+  get totalPrice() {
+    return this.cartService.getTotalPrice();
+  }
 }

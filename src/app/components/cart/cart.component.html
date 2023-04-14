@@ -1,10 +1,24 @@
 <div class="bg-gray-200">
   <div class="container mx-auto px-8 bg-white min-h-screen">
-    <div class="flex flex-col flex-wrap justify-center gap-8">
-      <app-cart-item
-        *ngFor="let item of getItems()"
-        [item]="item"
-      ></app-cart-item>
+    <div class="flex flex-col justify-center gap-8">
+      <div class="flex flex-col justify-center gap-8 divide-y">
+        <app-cart-item
+          *ngFor="let item of getItems()"
+          [item]="item"
+        ></app-cart-item>
+      </div>
+      <div class="flex justify-end border-t border-b" *ngIf="totalCount > 0">
+        <div class="w-48 flex justify-between my-8">
+          <span>Total</span>
+          <span>${{ totalPrice }}</span>
+        </div>
+      </div>
+      <button
+        class="px-8 py-2 mt-16 shadow-sm hover:shadow-xl border rounded-full"
+        *ngIf="totalCount > 0"
+      >
+        Checkout
+      </button>
       <div
         class="mx-auto flex flex-col items-center gap-y-6"
         *ngIf="totalCount === 0"

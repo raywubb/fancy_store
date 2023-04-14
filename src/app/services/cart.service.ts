@@ -49,6 +49,16 @@ export class CartService {
       .reduce((acc, cnt) => acc + cnt, 0);
   }
 
+  getTotalPrice() {
+    return this.items
+      .map(
+        (item) =>
+          item.count *
+          (this.productService.getProduct(item.productId)?.price ?? 0)
+      )
+      .reduce((acc, v) => acc + v, 0);
+  }
+
   getItems() {
     return this.items;
   }
