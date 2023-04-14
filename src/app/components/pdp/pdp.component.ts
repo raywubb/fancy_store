@@ -11,7 +11,7 @@ import { Product } from '../../types';
 })
 export class PdpComponent implements OnInit {
   id: number = 0;
-  product: Product | undefined;
+  product!: Product;
   inCart: boolean = false;
 
   constructor(

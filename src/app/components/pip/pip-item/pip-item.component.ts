@@ -16,7 +16,7 @@ interface Product {
   styleUrls: ['./pip-item.component.css'],
 })
 export class PipItemComponent {
-  @Input() product: Product | undefined;
+  @Input() product!: Product;
 
   getRate() {
     const value = Math.round(this.product?.rating?.rate ?? 0);

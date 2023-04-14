@@ -1,18 +1,18 @@
 <a
-  routerLink="/product/{{ product?.id }}"
+  routerLink="/product/{{ product.id }}"
   class="block shadow rounded-lg w-[352px] p-4"
 >
   <img
     class="w-[320px] h-[240px] object-contain"
-    src="{{ product?.image }}"
-    alt="{{ product?.title }}"
+    src="{{ product.image }}"
+    alt="{{ product.title }}"
   />
   <div class="w-full h-20 mt-4 flex flex-col justify-between text-gray-600">
     <p class="line-clamp-2 text-md font-semibold">
-      {{ product?.title }}
+      {{ product.title }}
     </p>
     <div class="flex justify-between items-center">
-      <div>${{ product?.price }}</div>
+      <div>${{ product.price }}</div>
       <div class="flex items-center gap-x-1">
         <div class="flex">
           <svg
@@ -31,7 +31,7 @@
             />
           </svg>
         </div>
-        <span>{{ product?.rating?.rate }}({{ product?.rating?.count }})</span>
+        <span>{{ product.rating?.rate }}({{ product.rating?.count }})</span>
       </div>
     </div>
   </div>
