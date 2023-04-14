@@ -11,7 +11,7 @@ import { Product } from '../../types';
 })
 export class PdpComponent implements OnInit {
   id: number = 0;
-  product: Product | undefined;
+  product!: Product;
   inCart: boolean = false;
 
   constructor(
@@ -36,11 +36,11 @@ export class PdpComponent implements OnInit {
   }
 
   getRate() {
-    const value = Math.round(this.product?.rating?.rate ?? 0);
+    const value = Math.round(this.product.rating.rate);
     return new Array(value);
   }
 
   addToCart() {
-    this.cartService.addToCart(this.product?.id!);
+    this.cartService.addToCart(this.product.id);
   }
 }

@@ -4,7 +4,7 @@ import { CartItem } from '../types';
 
 @Injectable()
 export class CartService {
-  items: CartItem[] = [{ productId: 2, count: 3 }];
+  items: CartItem[] = [];
   cartUpdated = new EventEmitter<string>();
 
   constructor(private productService: ProductService) {}
@@ -50,13 +50,13 @@ export class CartService {
   }
 
   getTotalPrice() {
-    return this.items
+    const price = this.items
       .map(
         (item) =>
-          item.count *
-          (this.productService.getProduct(item.productId)?.price ?? 0)
+          item.count * this.productService.getProduct(item.productId).price
       )
       .reduce((acc, v) => acc + v, 0);
+    return price.toFixed(2);
   }
 
   getItems() {

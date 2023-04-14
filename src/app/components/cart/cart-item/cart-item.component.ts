@@ -9,7 +9,7 @@ import { CartItem } from 'src/app/types';
   styleUrls: ['./cart-item.component.css'],
 })
 export class CartItemComponent {
-  @Input() item: CartItem | undefined;
+  @Input() item!: CartItem;
 
   constructor(
     private productService: ProductService,
@@ -17,14 +17,14 @@ export class CartItemComponent {
   ) {}
 
   get product() {
-    return this.productService.getProduct(this.item!.productId);
+    return this.productService.getProduct(this.item.productId);
   }
 
   increase() {
-    this.cartService.addToCart(this.item!.productId);
+    this.cartService.addToCart(this.item.productId);
   }
 
   decrease() {
-    this.cartService.decFromCart(this.item!.productId);
+    this.cartService.decFromCart(this.item.productId);
   }
 }

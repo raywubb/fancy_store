@@ -18,7 +18,8 @@ export class ProductService {
     return this.products;
   }
 
-  getProduct(id: number): Product | undefined {
-    return this.products.find((item) => item.id === id);
+  getProduct(id: number): Product {
+    const product = this.products.find((item) => item.id === id);
+    return product!;
   }
 }
