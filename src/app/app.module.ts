@@ -11,6 +11,7 @@ import { CartService } from './services/cart.service';
 import { HttpClientModule } from '@angular/common/http';
 import { CartComponent } from './components/cart/cart.component';
 import { CartItemComponent } from './components/cart/cart-item/cart-item.component';
+import { LoginComponent } from './components/login/login.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { CartItemComponent } from './components/cart/cart-item/cart-item.compone
     PdpComponent,
     CartComponent,
     CartItemComponent,
+    LoginComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule],
   providers: [ProductService, CartService],
