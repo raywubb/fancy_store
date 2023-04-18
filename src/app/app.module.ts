@@ -12,6 +12,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { CartComponent } from './components/cart/cart.component';
 import { CartItemComponent } from './components/cart/cart-item/cart-item.component';
 import { LoginComponent } from './components/login/login.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,7 @@ import { LoginComponent } from './components/login/login.component';
     CartItemComponent,
     LoginComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, HttpClientModule],
+  imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
   providers: [ProductService, CartService],
   bootstrap: [AppComponent],
 })
