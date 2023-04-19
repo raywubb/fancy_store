@@ -1,0 +1,53 @@
+<div class="bg-gray-200">
+  <div class="container mx-auto px-8 bg-white">
+    <div class="flex flex-wrap justify-center gap-8 h-screen">
+      <form
+        class="flex flex-col space-y-8 my-3"
+        #f="ngForm"
+        (ngSubmit)="onSubmit()"
+      >
+        <div class="flex flex-col space-y-4">
+          <div class="flex flex-col space-y-1">
+            <label for="username" class="text-sm">Username</label>
+            <input
+              type="text"
+              name="username"
+              id="username"
+              [ngModel]="usernameDft"
+              required
+              #username="ngModel"
+              class="border border-gray-500 w-[300px] leading-8 px-2"
+            />
+            <span
+              *ngIf="!username.valid && username.touched"
+              class="text-red-400 text-sm"
+              >Please enter your username.</span
+            >
+          </div>
+          <div class="flex flex-col space-y-1">
+            <label for="password" class="text-sm">Password</label>
+            <input
+              type="password"
+              name="password"
+              id="password"
+              [ngModel]="pwdDft"
+              required
+              #pwd="ngModel"
+              class="border border-gray-500 w-[300px] leading-8 px-2"
+            />
+            <span *ngIf="!pwd.valid && pwd.touched" class="text-red-400 text-sm"
+              >Please enter your password.</span
+            >
+          </div>
+        </div>
+        <button
+          type="submit"
+          class="border border-gray-600 rounded-md py-1 w-36 self-end"
+          [disabled]="!f.valid"
+        >
+          Submit
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
