@@ -14,8 +14,15 @@
               name="username"
               id="username"
               ngModel
-              class="border border-gray-500 w-[300px] leading-8"
+              required
+              #username="ngModel"
+              class="border border-gray-500 w-[300px] leading-8 px-2"
             />
+            <span
+              *ngIf="!username.valid && username.touched"
+              class="text-red-400 text-sm"
+              >Please enter your username.</span
+            >
           </div>
           <div class="flex flex-col space-y-1">
             <label for="password" class="text-sm">Password</label>
@@ -24,13 +31,19 @@
               name="password"
               id="password"
               ngModel
-              class="border border-gray-500 w-[300px] leading-8"
+              required
+              #pwd="ngModel"
+              class="border border-gray-500 w-[300px] leading-8 px-2"
             />
+            <span *ngIf="!pwd.valid && pwd.touched" class="text-red-400 text-sm"
+              >Please enter your password.</span
+            >
           </div>
         </div>
         <button
           type="submit"
           class="border border-gray-600 rounded-md py-1 w-36 self-end"
+          [disabled]="!f.valid"
         >
           Submit
         </button>
