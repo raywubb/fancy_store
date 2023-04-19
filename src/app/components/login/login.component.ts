@@ -10,6 +10,8 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent {
   @ViewChild('f') loginForm!: NgForm;
+  usernameDft = 'mor_2314';
+  pwdDft = '83r5^_';
 
   constructor(private http: HttpClient, private router: Router) {}
 
@@ -21,11 +23,10 @@ export class LoginComponent {
       )
       .subscribe(
         (res) => {
-          console.log('.. L19', res.token);
           localStorage.setItem('token', res.token);
 
           const path = localStorage.getItem('path');
-          this.router.navigateByUrl(path!);
+          this.router.navigateByUrl(path || '/');
         },
         (error) => {
           console.log('Login failed, use mor_2314/83r5^_');

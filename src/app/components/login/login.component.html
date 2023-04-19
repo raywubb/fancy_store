@@ -13,7 +13,7 @@
               type="text"
               name="username"
               id="username"
-              ngModel
+              [ngModel]="usernameDft"
               required
               #username="ngModel"
               class="border border-gray-500 w-[300px] leading-8 px-2"
@@ -30,7 +30,7 @@
               type="password"
               name="password"
               id="password"
-              ngModel
+              [ngModel]="pwdDft"
               required
               #pwd="ngModel"
               class="border border-gray-500 w-[300px] leading-8 px-2"
