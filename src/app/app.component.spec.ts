@@ -1,12 +1,16 @@
+import { HttpClient, HttpHandler } from '@angular/common/http';
 import { TestBed } from '@angular/core/testing';
 import { AppComponent } from './app.component';
+import { CartService } from './services/cart.service';
+import { ProductService } from './services/product.service';
+import { RouterTestingModule } from '@angular/router/testing';
 
 describe('AppComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [
-        AppComponent
-      ],
+      imports: [RouterTestingModule],
+      declarations: [AppComponent],
+      providers: [CartService, ProductService, HttpClient, HttpHandler],
     }).compileComponents();
   });
 
@@ -19,6 +23,7 @@ describe('AppComponent', () => {
   it(`should have as title 'store_demo'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
+    fixture.detectChanges();
     expect(app.title).toEqual('store_demo');
   });
 
@@ -26,6 +31,8 @@ describe('AppComponent', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('.content span')?.textContent).toContain('store_demo app is running!');
+    expect(compiled.querySelector('header h1')?.textContent).toEqual(
+      'store_demo'
+    );
   });
 });
